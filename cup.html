@@ -1,0 +1,29 @@
+<h1>Yonas's Cup</h1>
+<canvas id="cupCanvas" width="500" height="500"></canvas>
+<script>
+  const canvas = document.getElementById("cupCanvas");
+  const ctx = canvas.getContext("2d");
+
+  // Cup Rim (Top)
+  ctx.beginPath();
+  ctx.ellipse(250, 150, 80, 30, 0, 0, 2 * Math.PI);
+  ctx.stroke();
+
+  // Cup Body (Sides)
+  ctx.moveTo(170, 150); // Left rim
+  ctx.lineTo(190, 350); // Bottom left
+  ctx.lineTo(310, 350); // Bottom right
+  ctx.lineTo(330, 150); // Right rim
+  ctx.stroke();
+
+  // Cup Base (Curved bottom instead of straight line)
+  ctx.beginPath();
+  ctx.ellipse(250, 350, 60, 15, 0, 0, Math.PI);
+  ctx.stroke();
+
+  // Handle (Simple Curve)
+  ctx.beginPath();
+  ctx.moveTo(327, 180);
+  ctx.bezierCurveTo(400, 200, 400, 300, 312, 320);
+  ctx.stroke();
+</script>

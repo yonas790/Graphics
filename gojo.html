@@ -1,0 +1,92 @@
+<h1>Yonas's Gojo</h1>
+<canvas id="view"></canvas>
+<script>
+    var vw = document.getElementById('view');
+    var w = vw.width = window.innerWidth - 50 ; 
+    var h = vw.height = window.innerHeight - 200; 
+    var ctx = vw.getContext('2d');
+
+
+    ctx.strokeStyle = 'black';
+
+    // Set fill colors for each part
+    var roofColor = 'red';     
+    var doorColor = 'brown';   
+    var windowColor = 'blue';  
+    var baseColor = 'gray';   
+
+    // Roof (triangle)
+    ctx.fillStyle = roofColor;
+    ctx.beginPath();
+    ctx.moveTo(600, 200);
+    ctx.lineTo(500, 300); 
+    ctx.lineTo(700, 300);
+    ctx.lineTo(600, 200);
+    ctx.fill();
+    ctx.stroke();
+
+    // House base
+    ctx.fillStyle = baseColor;
+    ctx.beginPath();
+    ctx.moveTo(530, 300);
+    ctx.lineTo(530, 400); 
+    ctx.lineTo(670, 400);
+    ctx.lineTo(670, 300);
+    ctx.fill();
+    ctx.stroke();
+
+    // Left Window
+    ctx.fillStyle = windowColor;
+    ctx.beginPath();
+    ctx.moveTo(530, 320);
+    ctx.lineTo(550, 320); 
+    ctx.lineTo(550, 340);
+    ctx.lineTo(530, 340);
+    ctx.fill();
+    ctx.stroke();
+
+    // Right Window
+    ctx.fillStyle = windowColor;
+    ctx.beginPath();
+    ctx.moveTo(670, 320);
+    ctx.lineTo(650, 320);
+    ctx.lineTo(650, 340);
+    ctx.lineTo(670, 340);
+    ctx.fill();
+    ctx.stroke();
+
+    // Door
+    ctx.fillStyle = doorColor;
+    ctx.beginPath();
+    ctx.moveTo(590, 400);
+    ctx.lineTo(590, 370); 
+    ctx.lineTo(610, 370);
+    ctx.lineTo(610, 400);
+    ctx.fill();
+    ctx.stroke();
+
+    // First Vertical Line
+    ctx.beginPath();
+    ctx.moveTo(530, 270);
+    ctx.lineTo(530, 220);
+    ctx.stroke();
+
+    // Second Vertical Line
+    ctx.beginPath();
+    ctx.moveTo(540, 260);
+    ctx.lineTo(540, 220); 
+    ctx.stroke();
+
+    // Roof Angles
+    ctx.beginPath();
+    ctx.moveTo(535, 205);
+    ctx.lineTo(525, 220); 
+    ctx.lineTo(530, 220);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(535, 205);
+    ctx.lineTo(545, 220); 
+    ctx.lineTo(540, 220);
+    ctx.stroke();
+</script>
