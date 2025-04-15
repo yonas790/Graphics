@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gojo Drawing</title>
+  <style>
+    canvas {
+      background: skyblue;
+      display: block;
+      margin: 20px auto;
+      border: 2px solid #444;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="gojoCanvas" width="800" height="500"></canvas>
+
+  <script>
+    const canvas = document.getElementById('gojoCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Background hills and grass
+    function drawBackground() {
+      // Grass
+      ctx.fillStyle = '#4CAF50';
+      ctx.fillRect(0, 350, canvas.width, 150);
+
+      // Hills
+      ctx.fillStyle = '#388E3C';
+      ctx.beginPath();
+      ctx.moveTo(0, 350);
+      ctx.bezierCurveTo(200, 250, 600, 450, 800, 350);
+      ctx.lineTo(800, 500);
+      ctx.lineTo(0, 500);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    // Gojo base (rectangle) and roof
+    function drawGojo() {
+      const houseX = 320;
+      const houseY = 270;
+      const houseWidth = 160;
+      const houseHeight = 100;
+
+      // Base rectangle (walls)
+      ctx.fillStyle = '#A0522D'; // Mud brown
+      ctx.fillRect(houseX, houseY, houseWidth, houseHeight);
+
+      // Roof (triangle)
+      ctx.fillStyle = '#DEB887'; // Thatch
+      ctx.beginPath();
+      ctx.moveTo(houseX - 20, houseY);
+      ctx.lineTo(houseX + houseWidth / 2, houseY - 100);
+      ctx.lineTo(houseX + houseWidth + 20, houseY);
+      ctx.closePath();
+      ctx.fill();
+
+      // Door
+      ctx.fillStyle = '#654321';
+      ctx.fillRect(houseX + 55, houseY + 40, 50, 60);
+
+      // Windows
+      ctx.fillStyle = '#222';
+      ctx.fillRect(houseX + 10, houseY + 20, 20, 20);
+      ctx.fillRect(houseX + 130, houseY + 20, 20, 20);
+
+      // Smoke Dispenser (chimney)
+      ctx.fillStyle = '#8B4513';
+      ctx.fillRect(houseX + houseWidth / 2 - 5, houseY - 110, 10, 20);
+    }
+
+    // Smoke
+    function drawSmoke() {
+      ctx.fillStyle = 'rgba(100,200,200,0.4)';
+      ctx.beginPath();
+      ctx.arc(400, 140, 15, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(410, 120, 12, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(420, 100, 9, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    function drawScene() {
+      drawBackground();
+      drawGojo();
+      drawSmoke();
+    }
+
+    drawScene();
+  </script>
+</body>
+</html>
